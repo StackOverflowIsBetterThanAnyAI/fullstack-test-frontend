@@ -3,7 +3,7 @@ import { handleDeleteUserProps } from '@/types/types'
 
 export const handleDeleteUser = async ({
     id,
-    setIsDeleted,
+    router,
 }: handleDeleteUserProps) => {
     try {
         const response = await fetch(`${SERVER_ADDRESS}/delete/${id}`, {
@@ -16,7 +16,7 @@ export const handleDeleteUser = async ({
         if (!response.ok) {
             console.log('error', response.status)
         }
-        setIsDeleted(true)
+        router.refresh()
     } catch {
         console.log('error')
     }

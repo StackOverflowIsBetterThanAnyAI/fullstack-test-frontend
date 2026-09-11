@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { handleSubmitUser } from '../api/handleSubmitUser'
+import { handleSubmitUser } from '@/app/api/handleSubmitUser'
 
 const Add = () => {
     const [name, setName] = useState('')

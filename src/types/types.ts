@@ -1,3 +1,5 @@
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
+
 export type UserProps = {
     id: number
     name: string
@@ -6,7 +8,7 @@ export type UserProps = {
 
 export type handleDeleteUserProps = {
     id: number
-    setIsDeleted: (value: boolean) => void
+    router: AppRouterInstance
 }
 
 export type handleSubmitUserProps = {

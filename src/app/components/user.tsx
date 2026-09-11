@@ -1,19 +1,20 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
+
 import { UserProps } from '@/types/types'
-import { useState } from 'react'
-import { handleDeleteUser } from '../api/handleDeleteUser'
+import { handleDeleteUser } from '@/app/api/handleDeleteUser'
 
 const User = ({ id, name, surname }: UserProps) => {
-    const [isDeleted, setIsDeleted] = useState(false)
+    const router = useRouter()
 
     const handleDelete = (id: number) => {
-        handleDeleteUser({ id, setIsDeleted })
+        handleDeleteUser({ id, router })
     }
 
-    return isDeleted ? null : (
-        <div key={id} className="flex flex-col gap-2">
-            <div className="flex gap-2">
+    return (
+        <div className="flex flex-col gap-2">
+            <div className="flex gap-1">
                 <p className="w-fit">{name}</p>
                 <p className="w-fit">{surname}</p>
             </div>
