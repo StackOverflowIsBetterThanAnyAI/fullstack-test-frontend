@@ -11,12 +11,13 @@ export const handleFetchUsers = async () => {
 
         if (!response.ok) {
             console.log('error', response.status)
-            throw new Error('an error occurred during the api call')
+            return []
         }
 
         const data = await response.json()
-        return data.data
-    } catch {
-        console.error('an error occurred during the api call')
+        return data?.data || []
+    } catch (error) {
+        console.error('an error occurred during the api call', error)
+        return []
     }
 }

@@ -29,7 +29,7 @@ export const handleSubmitUser = async ({
 
         setName('')
         setSurname('')
-    } catch {
-        console.error('an error occurred during the api call')
+    } catch (error) {
+        console.error('an error occurred during the api call', error)
     }
 }

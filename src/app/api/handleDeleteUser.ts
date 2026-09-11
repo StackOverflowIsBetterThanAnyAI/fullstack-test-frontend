@@ -18,7 +18,7 @@ export const handleDeleteUser = async ({
             throw new Error('an error occurred during the api call')
         }
         router.refresh()
-    } catch {
-        console.log('an error occurred during the api call')
+    } catch (error) {
+        console.log('an error occurred during the api call', error)
     }
 }
