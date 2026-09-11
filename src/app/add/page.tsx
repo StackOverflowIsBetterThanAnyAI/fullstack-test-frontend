@@ -19,9 +19,10 @@ const Add = () => {
                 onSubmit={(e) => handleSubmit(e)}
             >
                 <div className="flex flex-col gap-2">
-                    <label>Name:</label>
+                    <label htmlFor="name">Name:</label>
                     <input
                         type="text"
+                        id="name"
                         name="name"
                         className="outline outline-zinc-50 rounded px-2"
                         value={name}
@@ -29,9 +30,10 @@ const Add = () => {
                     />
                 </div>
                 <div className="flex flex-col gap-2">
-                    <label>Surname:</label>
+                    <label htmlFor="surname">Surname:</label>
                     <input
                         type="text"
+                        is="surname"
                         name="surname"
                         className="outline outline-zinc-50 rounded px-2"
                         value={surname}

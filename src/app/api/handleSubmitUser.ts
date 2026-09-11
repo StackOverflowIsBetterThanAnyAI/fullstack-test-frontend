@@ -9,6 +9,9 @@ export const handleSubmitUser = async ({
     surname,
 }: handleSubmitUserProps) => {
     e.preventDefault()
+    if (!name?.length || !surname?.length) {
+        return
+    }
 
     try {
         const response = await fetch(`${SERVER_ADDRESS}/add`, {
@@ -21,11 +24,12 @@ export const handleSubmitUser = async ({
 
         if (!response.ok) {
             console.log('error', response.status)
+            throw new Error('an error occurred during the api call')
         }
 
         setName('')
         setSurname('')
     } catch {
-        console.error('error')
+        console.error('an error occurred during the api call')
     }
 }
