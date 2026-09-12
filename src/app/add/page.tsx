@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { handleSubmitUser } from '@/app/api/handleSubmitUser'
 
 const Add = () => {
-    const [name, setName] = useState('')
-    const [surname, setSurname] = useState('')
+    const [name, setName] = useState<string>('')
+    const [surname, setSurname] = useState<string>('')
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         handleSubmitUser({ e, name, setName, setSurname, surname })
