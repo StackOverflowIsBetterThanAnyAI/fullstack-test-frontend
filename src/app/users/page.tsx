@@ -6,7 +6,7 @@ import User from '@/app/components/user'
 import { UserProps } from '@/types/types'
 import { handleFetchUsers } from '@/app/api/handleFetchUsers'
 
-const Users = async () => {
+const Users = () => {
     const [apiData, setApiData] = useState<UserProps[]>([])
 
     useEffect(() => {
