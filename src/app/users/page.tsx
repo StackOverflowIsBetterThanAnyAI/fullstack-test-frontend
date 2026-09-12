@@ -1,12 +1,21 @@
-import User from '@/app/components/user'
+'use client'
 
+import { useEffect, useState } from 'react'
+
+import User from '@/app/components/user'
 import { UserProps } from '@/types/types'
 import { handleFetchUsers } from '@/app/api/handleFetchUsers'
 
 const Users = async () => {
-    let apiData: UserProps[] = []
+    const [apiData, setApiData] = useState<UserProps[]>([])
 
-    apiData = await handleFetchUsers()
+    useEffect(() => {
+        const loadData = async () => {
+            const data = await handleFetchUsers()
+            setApiData(data)
+        }
+        loadData()
+    }, [])
 
     return (
         <main className="flex flex-col gap-4 items-center justify-center">
