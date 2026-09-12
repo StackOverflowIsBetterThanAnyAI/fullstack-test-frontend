@@ -23,7 +23,7 @@ export const handleSubmitUser = async ({
 
         if (!response.ok) {
             console.log('error', response.status)
-            throw new Error('an error occurred during the api call')
+            return
         }
 
         setName('')
