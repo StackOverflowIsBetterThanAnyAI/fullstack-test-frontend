@@ -5,8 +5,6 @@ RUN npm ci
 
 FROM node:24-alpine AS builder
 WORKDIR /app
-ARG SERVER_ADDRESS
-ENV SERVER_ADDRESS=$SERVER_ADDRESS
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build

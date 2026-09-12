@@ -1,4 +1,3 @@
-import { SERVER_ADDRESS } from '@/constants/constants'
 import { handleSubmitUserProps } from '@/types/types'
 
 export const handleSubmitUser = async ({
@@ -14,7 +13,7 @@ export const handleSubmitUser = async ({
     }
 
     try {
-        const response = await fetch(`${SERVER_ADDRESS}/add`, {
+        const response = await fetch('/api/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

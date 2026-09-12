@@ -25,5 +25,3 @@ jobs:
                   context: .
                   push: true
                   tags: ghcr.io/stackoverflowisbetterthananyai/fullstack-test-frontend:latest
-                  build-args: |
-                      SERVER_ADDRESS=http://backend:8888

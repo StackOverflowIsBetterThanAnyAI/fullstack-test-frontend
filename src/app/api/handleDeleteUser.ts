@@ -1,4 +1,3 @@
-import { SERVER_ADDRESS } from '@/constants/constants'
 import { handleDeleteUserProps } from '@/types/types'
 
 export const handleDeleteUser = async ({
@@ -6,7 +5,7 @@ export const handleDeleteUser = async ({
     router,
 }: handleDeleteUserProps) => {
     try {
-        const response = await fetch(`${SERVER_ADDRESS}/delete/${id}`, {
+        const response = await fetch(`/api/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
