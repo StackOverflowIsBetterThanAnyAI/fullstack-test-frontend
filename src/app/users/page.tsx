@@ -17,6 +17,10 @@ const Users = () => {
         loadData()
     }, [])
 
+    const handleRemoveUserFromState = (id: number) => {
+        setApiData((prevUsers) => prevUsers.filter((user) => user.id !== id))
+    }
+
     return (
         <main className="flex flex-col gap-4 items-center justify-center">
             <h1>Users</h1>
@@ -24,7 +28,10 @@ const Users = () => {
                 <ul className="flex flex-col gap-6 outline outline-zinc-50 p-4 rounded-md w-full max-w-3xs">
                     {apiData.map((user: UserProps) => (
                         <li key={user.id}>
-                            <User {...user} />
+                            <User
+                                {...user}
+                                onDelete={handleRemoveUserFromState}
+                            />
                         </li>
                     ))}
                 </ul>

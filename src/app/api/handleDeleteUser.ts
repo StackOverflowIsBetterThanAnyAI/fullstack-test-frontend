@@ -1,9 +1,6 @@
 import { handleDeleteUserProps } from '@/types/types'
 
-export const handleDeleteUser = async ({
-    id,
-    router,
-}: handleDeleteUserProps) => {
+export const handleDeleteUser = async ({ id }: handleDeleteUserProps) => {
     try {
         const response = await fetch(`/api/delete/${id}`, {
             method: 'DELETE',
@@ -14,10 +11,11 @@ export const handleDeleteUser = async ({
 
         if (!response.ok) {
             console.log('error', response.status)
-            throw new Error('an error occurred during the api call')
+            return false
         }
-        router.refresh()
+        return true
     } catch (error) {
         console.log('an error occurred during the api call', error)
+        return false
     }
 }

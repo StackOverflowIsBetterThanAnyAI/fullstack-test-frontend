@@ -1,15 +1,16 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-
 import { UserProps } from '@/types/types'
 import { handleDeleteUser } from '@/app/api/handleDeleteUser'
 
-const User = ({ id, name, surname }: UserProps) => {
-    const router = useRouter()
+type UserDeleteProps = { onDelete: (id: number) => void }
 
-    const handleDelete = (id: number) => {
-        handleDeleteUser({ id, router })
+const User = ({ id, name, surname, onDelete }: UserProps & UserDeleteProps) => {
+    const handleDelete = async (id: number) => {
+        const isDeleteSuccess = await handleDeleteUser({ id })
+        if (isDeleteSuccess) {
+            onDelete(id)
+        }
     }
 
     return (
